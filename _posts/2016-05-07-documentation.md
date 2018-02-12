@@ -2,6 +2,8 @@
 layout: post
 title: Documentation
 img: image-5.png
+color: "#D64541"
+fontcolor: "#000"
 ---
 
 

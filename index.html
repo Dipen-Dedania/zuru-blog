@@ -5,6 +5,12 @@ layout: default
 <div class="home">
 
 
+    <section class="range-slider">
+        <span class="rangeValues"></span>
+        <input value="500" min="500" max="50000" step="500" type="range" />
+        <input value="50000" min="500" max="50000" step="500" type="range" />
+    </section>
+
     <div class="row pack">
 
         {% for post in paginator.posts %}
@@ -12,7 +18,7 @@ layout: default
             <a href="{{ post.url | prepend: site.baseurl }}" class="index-anchor">
 
                 {% if post.color %}
-                <div class="panel panel-default" style="background-color: #1d5020">
+                <div class="panel panel-default" style="background-color:{{post.color}};color:{{post.fontcolor}}">
                 {% else %}
                 <div class="panel panel-default">
                 {% endif %}
