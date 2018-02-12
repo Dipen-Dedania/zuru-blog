@@ -27,32 +27,24 @@ layout: compress
   <script src="{{site.baseurl}}/js/jQRangeSlider.js"></script>
   <script src="{{site.baseurl}}/js/jQDateRangeSlider-min.js"></script>
     <script type="text/javascript">
-        function getVals(){
-            var parent = this.parentNode;
-            var slides = parent.getElementsByTagName("input");
-            var slide1 = parseFloat( slides[0].value );
-            var slide2 = parseFloat( slides[1].value );
-            if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
 
-            var displayElement = parent.getElementsByClassName("rangeValues")[0];
-            displayElement.innerHTML = "$ " + slide1 + "k - $" + slide2 + "k";
-        }
 
-        window.onload = function(){
-            var sliderSections = document.getElementsByClassName("range-slider");
-            for( var x = 0; x < sliderSections.length; x++ ){
-                var sliders = sliderSections[x].getElementsByTagName("input");
-                for( var y = 0; y < sliders.length; y++ ){
-                    if( sliders[y].type ==="range" ){
-                        sliders[y].oninput = getVals;
-                        sliders[y].oninput();
-                    }
-                }
-            }
-        };
 
         $( document ).ready(function() {
-            $("#slider").dateRangeSlider();
+            $("#slider").dateRangeSlider({
+                bounds:{
+                  min: new Date (2008, 1, 1),
+                    max: new Date (2012, 2, 12)
+                },
+                defaultValues:{
+                    min: new Date(2010, 1, 1),
+                    max: new Date(2012, 1, 31)
+                }
+            }),
+            $("#slider").bind("valuesChanging", function(e, data){
+                console.log("Something moved. min: " + data.values.min + " max: " + data.values.max);
+            });
+
         });
 
     </script>
