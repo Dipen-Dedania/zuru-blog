@@ -21,7 +21,11 @@ layout: compress
     
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://localhost:4000/js/bootstrap.min.js"></script>
+  <script src="{{site.baseurl}}/js/bootstrap.min.js"></script>
+  <script src="{{site.baseurl}}/js/jquery.min.js"></script>
+  <script src="{{site.baseurl}}/js/jquery-ui.min.js"></script>
+  <script src="{{site.baseurl}}/js/jQRangeSlider.js"></script>
+  <script src="{{site.baseurl}}/js/jQDateRangeSlider-min.js"></script>
     <script type="text/javascript">
         function getVals(){
             var parent = this.parentNode;
@@ -45,7 +49,12 @@ layout: compress
                     }
                 }
             }
-        }
+        };
+
+        $( document ).ready(function() {
+            $("#slider").dateRangeSlider();
+        });
+
     </script>
  {% if site.analytics %}{% include analytics.html %}{% endif %}
   </body>
