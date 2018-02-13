@@ -28,7 +28,16 @@ layout: compress
 <script src="{{site.baseurl}}/js/jQDateRangeSlider-min.js"></script>
 <script type="text/javascript">
     var getTimeStamp = function (timeString) {
-        return Math.round(new Date(timeString).getTime()/1000)
+        console.log(timeString);
+        return Math.round(new Date(firefoxDateIssue(timeString)).getTime()/1000)
+    };
+
+    var firefoxDateIssue = function (time) {
+        console.log("firefoxDateIssue", time);
+        if(time.indexOf("+") || time.indexOf("-")) {
+            time = time.substring(0, time.length-6);
+        }
+        return time;
     };
 
     var getFirstPublishedDate = function (markers) {
@@ -38,7 +47,7 @@ layout: compress
                 min = markers[i][1]
             }
         }
-        return min;
+        return firefoxDateIssue(min);
     };
 
     var getLastPublishedDate = function (markers) {
@@ -48,7 +57,7 @@ layout: compress
                 max = markers[i][1]
             }
         }
-        return max;
+        return firefoxDateIssue(max);
     };
 
     $(document).ready(function () {
@@ -59,6 +68,7 @@ layout: compress
 
         var sliderMin = getFirstPublishedDate(markers);
         var sliderMax = getLastPublishedDate(markers);
+        console.log(markers);
         $("#slider").dateRangeSlider({
             bounds: {
                 min: new Date(sliderMin),
@@ -72,9 +82,9 @@ layout: compress
 
         $("#slider").bind("valuesChanging", function (e, data) {
             var min = data.values.min;
-            var minTimeStamp = getTimeStamp(data.values.min);
+            var minTimeStamp = getTimeStamp(data.values.min.toString());
             var max = data.values.max;
-            var maxTimeStamp = getTimeStamp(data.values.max);
+            var maxTimeStamp = getTimeStamp(data.values.max.toString());
             for(var i=0; i<markers.length; i++) {
                 var id = markers[i][0];
                 var publishTime = markers[i][1];

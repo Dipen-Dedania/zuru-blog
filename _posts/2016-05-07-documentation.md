@@ -2,6 +2,7 @@
 layout: post
 did: "blog1"
 title: Documentation
+date:   2016-05-07 10:51:47
 img: image-5.png
 color: "#D64541"
 fontcolor: "#000"
