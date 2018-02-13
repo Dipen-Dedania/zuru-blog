@@ -10,14 +10,14 @@ title: Zuru Tech
 email: dipen@zuru.tech
 description: > # this means to ignore newlines until "baseurl:"
   Shaping future.
-  
-  
-  
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://dipen-dedania.github.io" # the base hostname & protocol for your site
+
+
+
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
 
 #sidebar
-default-image: logo zuru.png # If there is no featured image in a post then this image will be showed. Also on all pages this image will be showed. Use a 500x250 image.
+default-image: logo_zuru.png # If there is no featured image in a post then this image will be showed. Also on all pages this image will be showed. Use a 500x250 image.
 
 #footer
 built-by: webjeda
@@ -28,8 +28,6 @@ copyright:
 # Build settings
 markdown: kramdown
 permalink: /:title/
-paginate: 8
-paginate_path: /page:num/
 
 # Tracker
 analytics: UA-113891536-1
@@ -53,5 +51,4 @@ sass:
   style: compressed
 
 # Ruby Gems
-plugins: [jekyll-paginate, jekyll-seo-tag]
-
+plugins: [jekyll-seo-tag]
