@@ -1,5 +1,6 @@
 ---
 layout: post
+did: "blog2"
 title:  "Post with no image"
 categories: jekyll update
 color: "#F4B350"

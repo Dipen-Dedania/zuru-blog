@@ -1,5 +1,6 @@
 ---
 layout: post
+did: "blog6"
 title:  "Fixed camera setup for object localization and measurement"
 date:   2018-01-25 8:00:00 +0530
 categories: computer-vision

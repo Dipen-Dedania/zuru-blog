@@ -1,5 +1,6 @@
 ---
 layout: post
+did: "blog1"
 title: Documentation
 img: image-5.png
 color: "#D64541"

@@ -1,54 +1,95 @@
 ---
 layout: compress
---- 
+---
 
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+<body>
 
-    {% include header.html %}
+{% include header.html %}
 
-    <div class="container">
-      <div class="wrapper">
+<div class="container">
+    <div class="wrapper">
         {{ content }}
-      </div>
     </div>
+</div>
 
-    {% include footer.html %}
-    
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="{{site.baseurl}}/js/bootstrap.min.js"></script>
-  <script src="{{site.baseurl}}/js/jquery.min.js"></script>
-  <script src="{{site.baseurl}}/js/jquery-ui.min.js"></script>
-  <script src="{{site.baseurl}}/js/jQRangeSlider.js"></script>
-  <script src="{{site.baseurl}}/js/jQDateRangeSlider-min.js"></script>
-    <script type="text/javascript">
+{% include footer.html %}
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="{{site.baseurl}}/js/bootstrap.min.js"></script>
+<script src="{{site.baseurl}}/js/jquery.min.js"></script>
+<script src="{{site.baseurl}}/js/jquery-ui.min.js"></script>
+<script src="{{site.baseurl}}/js/jQRangeSlider.js"></script>
+<script src="{{site.baseurl}}/js/jQDateRangeSlider-min.js"></script>
+<script type="text/javascript">
+    var getTimeStamp = function (timeString) {
+        return Math.round(new Date(timeString).getTime()/1000)
+    };
 
-        $( document ).ready(function() {
-            $("#slider").dateRangeSlider({
-                bounds:{
-                  min: new Date (2008, 1, 1),
-                    max: new Date (2012, 2, 12)
-                },
-                defaultValues:{
-                    min: new Date(2010, 1, 1),
-                    max: new Date(2012, 1, 31)
-                }
-            }),
-            $("#slider").bind("valuesChanging", function(e, data){
-                console.log("Something moved. min: " + data.values.min + " max: " + data.values.max);
-            });
+    var getFirstPublishedDate = function (markers) {
+        var min = markers[0][1];
+        for(var i=0; i<markers.length; i++) {
+            if(min > markers[i][1]) {
+                min = markers[i][1]
+            }
+        }
+        return min;
+    };
 
+    var getLastPublishedDate = function (markers) {
+        var max = markers[0][1];
+        for(var i=0; i<markers.length; i++) {
+            if(max < markers[i][1]) {
+                max = markers[i][1]
+            }
+        }
+        return max;
+    };
+
+    $(document).ready(function () {
+        var markers = [
+        {% for post in paginator.posts %}
+        ['{{ post.did | escape}}','{{post.date}}']{% unless forloop.last %},{% endunless %}
+        {% endfor %}];
+
+        var sliderMin = getFirstPublishedDate(markers);
+        var sliderMax = getLastPublishedDate(markers);
+        $("#slider").dateRangeSlider({
+            bounds: {
+                min: new Date(sliderMin),
+                max: new Date(sliderMax)
+            },
+            defaultValues: {
+                min: new Date(sliderMin),
+                max: new Date(sliderMax)
+            }
         });
 
-    </script>
- {% if site.analytics %}{% include analytics.html %}{% endif %}
-  </body>
+        $("#slider").bind("valuesChanging", function (e, data) {
+            var min = data.values.min;
+            var minTimeStamp = getTimeStamp(data.values.min);
+            var max = data.values.max;
+            var maxTimeStamp = getTimeStamp(data.values.max);
+            for(var i=0; i<markers.length; i++) {
+                var id = markers[i][0];
+                var publishTime = markers[i][1];
+                var publishTimeStamp = getTimeStamp(publishTime);
+                if(publishTimeStamp > maxTimeStamp || publishTimeStamp< minTimeStamp) {
+                    $("#" + id).hide();
+                }
+                else {
+                    $("#" + id).show();
+                }
+            }
+        });
+    });
+</script>
+{% if site.analytics %}{% include analytics.html %}{% endif %}
+</body>
 
 </html>
