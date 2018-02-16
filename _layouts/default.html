@@ -97,6 +97,10 @@ layout: compress
                 }
             }
         });
+
+        $(".blog-tag-item").click(function () {
+           $(this).toggleClass('blog-tag-item-filtered');
+        });
     });
 </script>
 {% if site.analytics %}{% include analytics.html %}{% endif %}

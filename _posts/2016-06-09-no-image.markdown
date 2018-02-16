@@ -6,6 +6,7 @@ date:   2016-06-09 10:51:47
 categories: jekyll update
 color: "#F4B350"
 fontcolor: "#000"
+tags: robotics
 ---
 When there is no image mentioned in the front-matter, default image will be displayed. You can change this image to any other one that suits your needs.
 
