@@ -4,7 +4,7 @@ did: "blog3"
 title:  "Elements"
 date:   2016-06-10 10:51:47
 categories: jekyll update
-img: image-4.png
+img: scada.jpg
 color: "#663399"
 fontcolor: "#FFF"
 tags: robotics

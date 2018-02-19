@@ -2,7 +2,7 @@
 layout: post
 title:  "Installation"
 categories: jekyll update
-img: image-3.png
+img: ceiling.jpg
 categories: one
 date: 2018-01-25 8:00:00
 ---

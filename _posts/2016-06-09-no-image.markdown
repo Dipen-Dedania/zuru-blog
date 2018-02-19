@@ -4,6 +4,7 @@ did: "blog2"
 title:  "Post with no image"
 date:   2016-06-09 10:51:47
 categories: jekyll update
+img: scada2.png
 color: "#F4B350"
 fontcolor: "#000"
 tags: robotics
