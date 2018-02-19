@@ -26,14 +26,16 @@ layout: compress
 <script src="{{site.baseurl}}/js/jquery-ui.min.js"></script>
 <script src="{{site.baseurl}}/js/jQRangeSlider.js"></script>
 <script src="{{site.baseurl}}/js/jQDateRangeSlider-min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/javascript">
+    var minSliderValue = 0;
+    var maxSliderValue = 0;
+    var allPosts = [];
     var getTimeStamp = function (timeString) {
-        console.log(timeString);
         return Math.round(new Date(firefoxDateIssue(timeString)).getTime()/1000)
     };
 
     var firefoxDateIssue = function (time) {
-        console.log("firefoxDateIssue", time);
         if(time.indexOf("+") || time.indexOf("-")) {
             time = time.substring(0, time.length-6);
         }
@@ -60,15 +62,75 @@ layout: compress
         return firefoxDateIssue(max);
     };
 
+    var filterByTag = function () {
+        var tagsToFilter = $(".blog-tag-item-filtered").text();
+        var tagsToHide = [];
+        if(tagsToFilter){
+            tagsToHide = tagsToFilter.trim().split(" ");
+        }
+        console.log("tagsToHide", tagsToHide);
+        for(var i=0; i < tagsToHide.length; i++) {
+            if(tagsToHide[i]) {
+                $("." + tagsToHide[i]).hide();
+            }
+        }
+    };
+
+    var compareArrays = function (postTags, tagsToHide) {
+        var counter = 0;
+        for(var i =0; i< tagsToHide.length; i++) {
+            if(postTags.indexOf(tagsToHide[i]) > -1){
+                counter ++;
+            }
+        }
+        return counter === postTags.length;
+    };
+
+    var filterEverything = function () {
+        var minTimeStamp = getTimeStamp(minSliderValue.toString());
+        var maxTimeStamp = getTimeStamp(maxSliderValue.toString());
+
+        var tagsToFilter = $(".blog-tag-item-filtered").text();
+        var tagsToHide = [];
+        if(tagsToFilter){
+            console.log("tagsToFilter", tagsToFilter);
+            tagsToHide = tagsToFilter.trim().split(" ");
+        }
+        console.log("tagsToHide", tagsToHide);
+        for(var i=0; i<allPosts.length; i++) {
+            var id = allPosts[i][0];
+            var publishTime = allPosts[i][1];
+            var postTags = allPosts[i]['tags'];
+            var publishTimeStamp = getTimeStamp(publishTime);
+            if(publishTimeStamp > maxTimeStamp || publishTimeStamp< minTimeStamp || compareArrays(postTags, tagsToHide)) {
+                $("#" + id).hide();
+            }
+            else {
+                $("#" + id).show();
+            }
+        }
+    };
+
     $(document).ready(function () {
-        var markers = [
+        allPosts = [
         {% for post in site.posts %}
         ['{{ post.did | escape}}','{{post.date}}']{% unless forloop.last %},{% endunless %}
         {% endfor %}];
 
-        var sliderMin = getFirstPublishedDate(markers);
-        var sliderMax = getLastPublishedDate(markers);
-        console.log(markers);
+        var sliderMin = getFirstPublishedDate(allPosts);
+        var sliderMax = getLastPublishedDate(allPosts);
+        minSliderValue = sliderMin;
+        maxSliderValue = sliderMax;
+
+        for(var j=0; j <allPosts.length; j++) {
+            var id = allPosts[j][0];
+            var tags = $("#"+id).attr("class").trim().split(' ');
+            tags.splice( $.inArray("col-md-3", tags), 1 );
+            tags.splice( $.inArray("card", tags), 1 );
+            allPosts[j]['tags'] = tags;
+        }
+
+        console.log(allPosts);
         $("#slider").dateRangeSlider({
             bounds: {
                 min: new Date(sliderMin),
@@ -81,21 +143,14 @@ layout: compress
         });
 
         $("#slider").bind("valuesChanging", function (e, data) {
-            var min = data.values.min;
-            var minTimeStamp = getTimeStamp(data.values.min.toString());
-            var max = data.values.max;
-            var maxTimeStamp = getTimeStamp(data.values.max.toString());
-            for(var i=0; i<markers.length; i++) {
-                var id = markers[i][0];
-                var publishTime = markers[i][1];
-                var publishTimeStamp = getTimeStamp(publishTime);
-                if(publishTimeStamp > maxTimeStamp || publishTimeStamp< minTimeStamp) {
-                    $("#" + id).hide();
-                }
-                else {
-                    $("#" + id).show();
-                }
-            }
+            minSliderValue = data.values.min;
+            maxSliderValue = data.values.max;
+            filterEverything();
+        });
+
+        $(".blog-tag-item").click(function () {
+           $(this).toggleClass('blog-tag-item-filtered');
+            filterEverything();
         });
     });
 </script>

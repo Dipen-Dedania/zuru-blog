@@ -1,8 +1,13 @@
-Demo: [http://webjeda.com/cards](http://webjeda.com/cards)
 
 ## Installation
 * Fork the repository
 * Go to settings and set Github Pages source as master.
-* Your new site should be ready.
+* Update _config.yml as per your need.
 
-For more themes visit - [https://jekyll-themes.com](https://jekyll-themes.com)
+## Windows users
+* Install Bash shell command-line tool (https://www.windowscentral.com/how-install-bash-shell-command-line-windows-10)
+* Go through this doc to install Ruby, Jekyll (https://jekyllrb.com/docs/windows/)
+* bundle install (To install all dependencies)
+
+## Run
+* bundle exec jekyll serve
