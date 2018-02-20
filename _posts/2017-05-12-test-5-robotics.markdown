@@ -1,13 +1,13 @@
 ---
-author: "benbalter"
+author: "Harsh"
 layout: post
 did: "blog11"
-title:  "Usage Guide"
+title:  "Usage Guide 11"
 categories: jekyll update
 img: environment2.jpg
 date: 2017-05-12 8:00:00
 categories: two
-tags: robotics
+tags: "robotics, vr"
 ---
 
 Use the guide to prepare good looking posts! The theme has a sidebar in the post layout which consists of post image, recent posts and facebook like box. This can be extended by editing the ``sidebar.html`` in **_includes** folder.
