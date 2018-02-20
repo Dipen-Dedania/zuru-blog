@@ -463,3 +463,23 @@ input[type=number] {
   background-color: #E8D7EB;
   color: #22262A;
 }
+
+.close-icon{
+  display: inline-block;
+  font-size: 23px;
+  color: #FFFFFF;
+  text-decoration:none;
+  position: absolute;
+  right: 0px;
+  top: -5px;
+}
+
+.close-icon:hover{
+  color: #FFFFFF;
+  text-decoration:none
+}
+
+
+.post-header{
+  position: relative;
+}
