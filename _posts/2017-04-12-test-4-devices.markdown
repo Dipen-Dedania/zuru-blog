@@ -1,4 +1,5 @@
 ---
+author: "benbalter"
 layout: post
 did: "blog10"
 title:  "Usage Guide"
