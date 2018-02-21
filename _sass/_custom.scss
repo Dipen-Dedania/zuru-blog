@@ -436,7 +436,7 @@ input[type=number] {
   position: relative;
   z-index: 10;
   background: aliceblue;
-  top: 200px;
+  top: 300px;
   padding: 70px;
   box-shadow: 6px 6px 11px #333;
 }
@@ -464,22 +464,34 @@ input[type=number] {
   color: #22262A;
 }
 
-.close-icon{
+.close-icon {
   display: inline-block;
   font-size: 23px;
   color: #FFFFFF;
-  text-decoration:none;
+  text-decoration: none;
   position: absolute;
   right: 0px;
   top: -5px;
 }
 
-.close-icon:hover{
+.close-icon:hover {
   color: #FFFFFF;
-  text-decoration:none
+  text-decoration: none
 }
 
-
-.post-header{
+.post-header {
   position: relative;
+}
+
+.card .index-anchor .panel {
+  height: 450px;
+  border-radius: 0;
+}
+
+.card .index-anchor .panel:hover {
+  box-shadow: -2px 1px 7px 2px rgba(0, 0, 0, 0.4)
+}
+
+.card .index-anchor .panel > img {
+  height: 208px;
 }

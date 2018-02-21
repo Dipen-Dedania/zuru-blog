@@ -5,6 +5,7 @@ did: "blog7"
 title:  "Usage Guide"
 categories: jekyll update
 img: eniac.jpg
+banner: web.jpeg
 date: 2017-01-12 8:00:00
 categories: two
 tags: web
