@@ -1,5 +1,5 @@
 ---
-author: "Paolo Galeone"
+author: "pgaleone"
 layout: post
 did: "blog6"
 title:  "Fixed camera setup for object localization and measurement"
