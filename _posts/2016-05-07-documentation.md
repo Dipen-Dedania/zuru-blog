@@ -5,8 +5,6 @@ did: "blog1"
 title: Documentation
 date:   2016-05-07 10:51:47
 img: environment3.jpg
-color: "#D64541"
-fontcolor: "#000"
 tags: robotics
 ---
 

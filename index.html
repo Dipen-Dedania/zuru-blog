@@ -30,12 +30,10 @@ layout: default
             {% endfor %}">
                 <a href="{{ post.url | prepend: site.baseurl }}" class="index-anchor">
 
-                    {% if post.color %}
-                    <div class="panel panel-default"
-                    ">
-                    {% else %}
-                    <div class="panel panel-default">
-                        {% endif %}
+                    {% assign mainTag = post.tags[0] %}
+                    {% assign postTheme = site.themeColor[mainTag] %}
+
+                    <div class="panel panel-default" style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};">
 
                         {% if post.img %}
                         <img width="100%" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
