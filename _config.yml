@@ -67,7 +67,7 @@ themeColor:
     fontColor: "#000000"
   machine-learning:
     backgroundColor: "#34495E"
-    fontColor: '#ffffff'
+    fontColor: "#ffffff"
   robotics:
     backgroundColor: "#C5EFF7"
     fontColor: "#000000"

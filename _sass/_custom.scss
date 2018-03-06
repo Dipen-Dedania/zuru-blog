@@ -377,45 +377,6 @@ input[type=number] {
   border-top-color: transparent;
 }
 
-#footer{
-  padding: 2em 0 2em 0;
-}
-
-.machine-learning > a > .panel {
-  background-color: #075036;
-  color: #8FFEFF;
-}
-
-.vr > a > .panel {
-  background-color: #94C4FF;
-  color: #003324;
-}
-
-.web > a > .panel {
-  background-color: #E7AF65;
-  color: #421F1F;
-}
-
-.coding > a > .panel {
-  background-color: #001A47;
-  color: #FF8585;
-}
-
-.graphics > a > .panel {
-  background-color: #E8D7EB;
-  color: #22262A;
-}
-
-.devices > a > .panel {
-  background-color: #222833;
-  color: #FFDBC8;
-}
-
-.robotics > a > .panel {
-  background-color: #C5F3A9;
-  color: #373737;
-}
-
 .panel > img {
   -webkit-filter: grayscale(1) contrast(1.3);
   filter: grayscale(1) contrast(1.3);
@@ -440,7 +401,7 @@ input[type=number] {
   position: relative;
   z-index: 10;
   background: aliceblue;
-  top: 300px;
+  margin-top: 300px;
   padding: 70px;
   box-shadow: 0px 30px 27px #333;
 }
@@ -451,21 +412,6 @@ input[type=number] {
 
 .post-container .site-header .navbar-default {
   border-bottom: 0px;
-}
-
-.blog6.container .wrapper {
-  background-color: #075036;
-  color: #8FFEFF;
-}
-
-.blog12.container .wrapper {
-  background-color: #94C4FF;
-  color: #003324;
-}
-
-.blog4.container .wrapper {
-  background-color: #E8D7EB;
-  color: #22262A;
 }
 
 .close-icon {
@@ -541,11 +487,16 @@ input[type=number] {
 
 .sharing-icon{
   font-size: 28px;
+  float: right;
 }
 
 .author-name-title{
-  font-size: 30px;
-  letter-spacing: 2px;
+  font-size: 14px;
+  /* letter-spacing: 2px; */
+  margin: 0;
+  height: 65px;
+  /* float: right; */
+  text-align: right;
 }
 
 .author-thumbnail {
@@ -569,4 +520,27 @@ input[type=number] {
 .footer-container{
   font-family: sans-serif;
   font-size: 14px;
+  padding: 40px 20px;
+}
+
+.post-tags{
+   display: inline-block;
+   .post-tags-box{
+     float: left;
+     margin-right: 10px;
+     border: 1px solid #333;
+     border-radius: 10px;
+     p{
+       margin: 0;
+       padding: 4px;
+       text-align: center;
+       min-width: 35px;
+       font-size: 14px;
+     }
+   }
+ }
+
+.card-body{
+  padding: 10px;
+  border-top: 2px solid;
 }

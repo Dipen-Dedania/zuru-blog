@@ -80,7 +80,7 @@ img {
 
 
 footer {
-    border-top: 1px solid $grey-color-light;
+    //border-top: 1px solid $grey-color-light;
 }
 
 .social {
@@ -132,7 +132,15 @@ footer {
 
 .card {
     float: none;
+}
 
+.wrapper{
+  .card{
+    padding-top: 15px;
+    .card-body{
+      padding-top: 30px;
+    }
+  }
 }
 
 .post-title {
