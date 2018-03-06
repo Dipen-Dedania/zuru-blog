@@ -25,7 +25,7 @@ layout: default
                                 </time>
                                 {% if page.author %} • <span itemprop="author" itemscope
                                                              itemtype="http://schema.org/Person"><span
-                                    itemprop="name">{{ page.author }}</span></span>{% endif %}
+                                    itemprop="name"><a href="#author-card">{{ page.author }}</a></span></span>{% endif %}
                             </p>
                             <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
                         </header>
@@ -47,12 +47,12 @@ layout: default
                         <!--<h1 style="margin-left:3em;">{{ page.author }}</h1>-->
                     <!--</div>-->
                     {% assign author = site.data.authors[page.author] %}
-                    <div class="card">
+                    <div id="author-card" class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-10 col-md-10 col-sm-10">
                                     <p class="author-name-title">{{ author.name }}</p>
-                                    <div class="sharing-icon">
+                                    <div class="social-icon">
                                         <a href="{{ author.facebook }}" target="_blank" class="fa fa-facebook icon-maker"></a>
                                         <a href="{{ author.twitter }}" target="_blank" class="fa fa-twitter icon-maker"></a>
                                         <a href="{{ author.google }}" target="_blank" class="fa fa-google icon-maker"></a>
@@ -67,21 +67,22 @@ layout: default
                             </div>
                         </div>
                     {% endif %}
-                    <div class="row">
-                        <ul class="pager">
-                            {% if page.next.url %}
-                            <li><a class="next" href="{{page.next.url | prepend: site.baseurl}}">&laquo;
-                                {{page.next.title}}</a>
-                            </li>
-                            {% endif %}
-                            {% if page.previous.url %}
-                            <li><a class="previous" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title}}
-                                &raquo;</a></li>
-                            {% endif %}
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+</div>
+<div class="row">
+    <ul class="pager">
+        {% if page.next.url %}
+        <li><a class="next" href="{{page.next.url | prepend: site.baseurl}}">&laquo;
+            {{page.next.title}}</a>
+        </li>
+        {% endif %}
+        {% if page.previous.url %}
+        <li><a class="previous" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title}}
+            &raquo;</a></li>
+        {% endif %}
+    </ul>
 </div>
