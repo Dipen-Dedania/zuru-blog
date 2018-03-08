@@ -4,16 +4,23 @@ layout: default
 <div class="post-container">
     {% include header.html %}
     <div class="container {{ page.did }}">
-        {% if page.banner %}
+
+        <!--{% if page.banner %}
         <img src="{{site.baseurl}}/images/banners/{{ page.banner }}" class="post-banner"/>
         {% else %}
         <img src="{{site.baseurl}}/images/banners/banner-default.png" class="post-banner"/>
+        {% endif %}-->
+
+        {% if page.img %}
+        <img width="100%" src="{{site.baseurl}}/images/{{page.img}}" class="post-banner"/>
+        {% else %}
+        <img width="100%" src="{{site.baseurl}}/images/banners/banner-default.png" class="post-banner"/>
         {% endif %}
 
         {% assign mainTag = page.tags[0] %}
         {% assign postTheme = site.themeColor[mainTag] %}
 
-        <div class="wrapper" style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};" >
+        <div class="wrapper" style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};">
             <div class="row">
                 <div class="col-md-12">
                     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -43,8 +50,8 @@ layout: default
                     </div>
                     {% else %}
                     <!--<div>-->
-                        <!--<div style="width:4em;height:4em;border-radius:3em;background:red;"></div>-->
-                        <!--<h1 style="margin-left:3em;">{{ page.author }}</h1>-->
+                    <!--<div style="width:4em;height:4em;border-radius:3em;background:red;"></div>-->
+                    <!--<h1 style="margin-left:3em;">{{ page.author }}</h1>-->
                     <!--</div>-->
                     {% assign author = site.data.authors[page.author] %}
                     <div id="author-card" class="card">
@@ -66,23 +73,65 @@ layout: default
                                 </div>
                             </div>
                         </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="row pack post-suggestion-container">
+            <!--<ul class="pager">
+                {% if page.next.url %}
+                <li><a class="next" href="{{page.next.url | prepend: site.baseurl}}">&laquo;
+                    {{page.next.title}}</a>
+                </li>
+                {% endif %}
+                {% if page.previous.url %}
+                <li><a class="previous" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title}}
+                    &raquo;</a></li>
+                {% endif %}
+            </ul>-->
+
+            {% assign ctr = 0 %}
+            {% for post in site.posts %}
+
+            {% if ctr>3 %}
+            {% break %}
+            {%endif%}
+
+            {% if page.did != post.did%}
+                <div id="{{post.did}}" class="col-md-3 card {% for tag in post.tags %}
+                                         {{ tag }}
+                                         {% endfor %}">
+                    <a href="{{ post.url | prepend: site.baseurl }}" class="index-anchor">
+
+                        {% assign mainTag = post.tags[0] %}
+                        {% assign postTheme = site.themeColor[mainTag] %}
+
+                        <div class="panel panel-default"
+                             style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};">
+
+                            {% if post.img %}
+                            <img width="100%" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
+                            {% else %}
+                            <img width="100%" src="{{site.baseurl}}/images/webjeda-logo-big.jpg" alt="{{site.title}}">
+                            {% endif %}
+
+                            <div class="panel-body">
+                                <h3 class="panel-title pull-left">{{ post.title | truncate: 25 }}</h3><span
+                                    class="post-meta pull-right"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
+                            </div>
+
+                            <div class="panel-body">
+                                <small>
+                                    {{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}
+                                </small>
+                                Read
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% assign ctr = ctr | plus: 1 %}
+            {%endif%}
+            {%endfor%}
+        </div>
     </div>
-</div>
-</div>
-<div class="row">
-    <ul class="pager">
-        {% if page.next.url %}
-        <li><a class="next" href="{{page.next.url | prepend: site.baseurl}}">&laquo;
-            {{page.next.title}}</a>
-        </li>
-        {% endif %}
-        {% if page.previous.url %}
-        <li><a class="previous" href="{{page.previous.url | prepend: site.baseurl}}">{{page.previous.title}}
-            &raquo;</a></li>
-        {% endif %}
-    </ul>
-</div>

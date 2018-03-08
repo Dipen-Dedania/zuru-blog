@@ -390,6 +390,8 @@ input[type=number] {
   width: 100%;
   left: 0;
   z-index: 0;
+  height: 600px;
+  object-fit: cover;
 }
 
 .site-header {
@@ -446,8 +448,9 @@ input[type=number] {
   object-fit: cover;
 }
 
-.post-tags{
-
+.card-type-jumbo-standard-01 .index-anchor .panel > img {
+  height: 290px;
+  object-fit: cover;
 }
 
 .fa {
@@ -540,7 +543,7 @@ input[type=number] {
 .footer-container{
   font-family: sans-serif;
   font-size: 14px;
-  padding: 40px 20px;
+  padding-bottom: 40px;
 }
 
 .post-tags{
@@ -563,4 +566,12 @@ input[type=number] {
 .card-body{
   padding: 10px;
   border-top: 2px solid;
+}
+
+.post-suggestion-container{
+  padding-top: 50px;
+}
+
+.first-large-post .index-anchor .panel>img{
+  height: 300px;
 }
