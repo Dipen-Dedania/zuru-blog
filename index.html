@@ -27,15 +27,15 @@ layout: default
             {% for post in site.posts %}
                 {%assign indexModulo = forloop.index0 | modulo:4%}
                 {% if forloop.first == true %}
-                    <div id="{{post.did}}" class="first-large-post col-md-12 col-lg-12 card {% for tag in post.tags %}
+                    <div id="{{post.did}}" class="first-large-post col-md-12 col-lg-12 card" tags="{% for tag in post.tags %}
                                                      {{ tag }}
                                                      {% endfor %}">
                 {% elsif indexModulo == 0 or forloop.index0 == 2%}
-                    <div id="{{post.did}}" class="col-sm-6 col-md-8 col-lg-6 card-type-jumbo-standard-01 {% for tag in post.tags %}
+                    <div id="{{post.did}}" class="col-sm-6 col-md-8 col-lg-6 card-type-jumbo-standard-01" tags="{% for tag in post.tags %}
                                          {{ tag }}
                                          {% endfor %}">
                 {%else%}
-                    <div id="{{post.did}}" class="col-sm-6 col-md-4 col-lg-3 card {% for tag in post.tags %}
+                    <div id="{{post.did}}" class="col-sm-6 col-md-4 col-lg-3 card" tags="{% for tag in post.tags %}
                                          {{ tag }}
                                          {% endfor %}">
                 {%endif%}
