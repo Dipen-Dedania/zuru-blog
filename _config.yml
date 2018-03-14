@@ -56,24 +56,24 @@ plugins: [jekyll-seo-tag jekyll-author]
 
 #Theme colors based on tags
 themeColor:
-  coding:
-    backgroundColor: "#E4F1FE"
-    fontColor: "#000000"
-  devices:
-    backgroundColor: "#DADFE1"
-    fontColor: "#000000"
-  graphics:
-    backgroundColor: "#D2527F"
-    fontColor: "#000000"
-  machine-learning:
-    backgroundColor: "#34495E"
-    fontColor: "#ffffff"
-  robotics:
-    backgroundColor: "#C5EFF7"
-    fontColor: "#000000"
-  vr:
-    backgroundColor: "#BDC3C7"
-    fontColor: "#000000"
   web:
-    backgroundColor: "#86E2D5"
-    fontColor: "#000000"
+    backgroundColor: "#001A47"
+    fontColor: "#FF8585"
+  vr:
+    backgroundColor: "#94C4FF"
+    fontColor: "#003324"
+  machine-learning:
+    backgroundColor: "#075036"
+    fontColor: "#8FFEFF"
+  coding:
+    backgroundColor: "#E8D7EB"
+    fontColor: "#22262A"
+  graphics:
+    backgroundColor: "#E7AF65"
+    fontColor: "#612E2E"
+  devices:
+    backgroundColor: "#C5F3A9"
+    fontColor: "#373737"
+  robotics:
+    backgroundColor: "#222833"
+    fontColor: "#FFDBC8"
