@@ -96,6 +96,7 @@ layout: compress
             console.log("tagsToFilter", tagsToFilter);
             tagsToHide = tagsToFilter.trim().split(" ");
         }
+        var oldScrollPresence = $(document).height() > $(window).height();
         console.log("tagsToHide", tagsToHide);
         for(var i=0; i<allPosts.length; i++) {
             var id = allPosts[i][0];
@@ -109,6 +110,8 @@ layout: compress
                 $("#" + id).show();
             }
         }
+        ($(document).height()<=$(window).height() && oldScrollPresence)
+            ? $("#slider").dateRangeSlider('resize'): "";
     };
 
     $(document).ready(function () {
