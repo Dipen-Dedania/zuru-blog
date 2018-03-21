@@ -377,7 +377,7 @@ input[type=number] {
   border-top-color: transparent;
 }
 
-.card-image-wrapper > img {
+.panel > img {
   -webkit-filter: grayscale(1) contrast(1.3);
   filter: grayscale(1) contrast(1.3);
   mix-blend-mode: screen;
@@ -454,10 +454,6 @@ input[type=number] {
 .card-type-jumbo-standard-01 .index-anchor .panel > img {
   height: 290px;
   object-fit: cover;
-}
-
-.card-image-wrapper{
-
 }
 
 .fa {

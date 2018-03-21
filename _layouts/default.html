@@ -10,7 +10,7 @@ layout: compress
 {% assign mainTag = page.tags[0] %}
 {% assign postTheme = site.themeColor[mainTag] %}
 
-<body>
+<body style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};" >
 
 <div>
     {{ content }}
