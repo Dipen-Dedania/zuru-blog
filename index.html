@@ -50,7 +50,7 @@ layout: default
                         <div class="panel panel-default" style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};">
 
                             {% if post.img %}
-                            <img width="100%" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
+                            <img style="background-color:{{postTheme.fontColor}}" width="100%" src="{{site.baseurl}}/images/{{post.img}}" alt="{{post.title}}">
                             {% else %}
                             <img width="100%" src="{{site.baseurl}}/images/webjeda-logo-big.jpg" alt="{{site.title}}">
                             {% endif %}
