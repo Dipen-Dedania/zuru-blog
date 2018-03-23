@@ -577,7 +577,7 @@ input[type=number] {
 }
 
 .first-large-post .index-anchor .panel .card-image-container >img{
-  height: 300px;
+  height: 315px;
 }
 
 .header-hiring-btn{
@@ -589,4 +589,28 @@ input[type=number] {
   .header-link-button:hover{
     border: none;
   }
+}
+
+.card-tags-name{
+  font-size: 9px;
+  text-transform: uppercase;
+  //margin-bottom :5px;
+}
+
+.card-title{
+  font-size: 20px;
+}
+
+.card-sample-content{
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .card .index-anchor .panel .card-image-container>img{
+     height: 280px;
+   }
+}@media (max-width: 440px) {
+  .card .index-anchor .panel .card-image-container>img{
+     height: 186px;
+   }
 }
