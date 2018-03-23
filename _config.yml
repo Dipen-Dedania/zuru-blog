@@ -63,17 +63,17 @@ themeColor:
     backgroundColor: "#E8D7EB"
     fontColor: "#22262A"
   graphics:
-    backgroundColor: "#D2527F"
-    fontColor: "#000000"
+    backgroundColor: "#fbebde"
+    fontColor: "#122e94"
   machine-learning:
-    backgroundColor: "#075036"
-    fontColor: "#8FFEFF"
+    backgroundColor: "#d4f2df"
+    fontColor: "#024542"
   robotics:
     backgroundColor: "#C5EFF7"
     fontColor: "#000000"
   vr:
-    backgroundColor: "#94C4FF"
-    fontColor: "#003324"
+    backgroundColor: "#caf5fc"
+    fontColor: "#122e94"
   web:
     backgroundColor: "#001A47"
     fontColor: "#FF8585"
