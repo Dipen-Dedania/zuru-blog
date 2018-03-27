@@ -671,11 +671,17 @@ input[type=number] {
 
 .card-text-container{
   .card-sample-content{
-    line-height: 2.6;
+    //line-height: 2.6;
+    line-height: 1.4;
     font-weight: 300;
   }
 }
+
 @media (max-width: 991px) {
+
+  #bs-example-navbar-collapse-1{
+    display:none;
+  }
 
   .card-text-container{
     width: 100%;

@@ -5,7 +5,7 @@ layout: default
 {% include header.html %}
 
 <div class="container">
-  <div style="display: flex;">
+  <div style="display: flex; padding: 2em 0em 1em 0em">
     <h1 style="flex:1 1 70%; display:inline; margin: auto;text-align: center;margin-bottom: 0.5em;">Zuru Tech Office blog</h1>
   </div>
     <div class="home">
@@ -23,7 +23,7 @@ layout: default
 
         <br/>
         <br/>
-        <div id="slider"></div>
+        <div id="slider" style="padding-bottom:2em"></div>
         <br/>
         <div class="row pack">
 
@@ -60,11 +60,11 @@ layout: default
                                             class="post-meta pull-right"><small>{{ post.date | date: "%b %-d, %Y" }}</small></span>
                                     </div>
                                     <div class="panel-body">
-                                        <small class="card-sample-content">
+                                        <p class="card-sample-content" style="padding:1.5em">
                                             {%if forloop.first == true%}{{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}
                                             {%else%}{{ post.excerpt | strip_html | strip_newlines | truncate: 120 }}
                                             {%endif%}Read
-                                        </small>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
