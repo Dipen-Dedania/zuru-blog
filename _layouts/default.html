@@ -27,6 +27,7 @@ layout: compress
 <script src="{{site.baseurl}}/js/jQDateRangeSlider-min.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.min.css">
 <script type="text/javascript">
     var minSliderValue = 0;
     var maxSliderValue = 0;
@@ -155,6 +156,25 @@ layout: compress
            $(this).toggleClass('blog-tag-item-filtered');
             filterEverything();
         });
+
+        $( "#slider-range" ).slider({
+            range: true,
+            min: new Date(sliderMin).getTime() ,
+            max: new Date(sliderMax).getTime() ,
+            step: 86400,
+            values: [ new Date(sliderMin).getTime() , new Date(sliderMax).getTime()  ],
+            slide: function( event, ui ) {
+                minSliderValue = new Date(ui.values[0]);
+                maxSliderValue = new Date(ui.values[1]);
+
+                $("#dateRangeMin").text( (new Date(ui.values[ 0 ] ).toDateString()) );
+                $("#dateRangeMax").text( (new Date(ui.values[ 1 ] ).toDateString()) );
+                filterEverything();
+            }
+        });
+        $("#dateRangeMin").text( (new Date($( "#slider-range" ).slider( "values", 0 )).toDateString()) );
+        $("#dateRangeMax").text( (new Date($( "#slider-range" ).slider( "values", 1 )).toDateString()) );
+
     });
 </script>
 {% if site.analytics %}{% include analytics.html %}{% endif %}
