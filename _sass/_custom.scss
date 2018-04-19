@@ -522,7 +522,6 @@ input[type=number] {
 
 .sharing-icon{
   font-size: 28px;
-  float: left;
 }
 
 .author-name-title{
@@ -719,6 +718,18 @@ input[type=number] {
 }
 .ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl{
   border-top-left-radius: 0.6em !important;
+}
+
+.ui-slider .ui-slider-handle {
+  width: 0.9em !important;
+  height: 0.9em !important;
+  background: none !important;
+  border: #000 !important;
+  background-color: #000 !important;
+}
+
+.ui-slider-horizontal {
+  height: 0.5em !important;
 }
 
 @media (max-width: 991px) {
