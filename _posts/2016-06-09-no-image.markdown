@@ -2,7 +2,7 @@
 author: "benbalter"
 layout: post
 did: "blog2"
-title:  "Post with no image"
+title:  "No image post"
 date:   2016-06-09 10:51:47
 categories: jekyll update
 img: scada2.png
