@@ -44,7 +44,7 @@ layout: default
                     </article>
 
 
-                    {% if page.author.name and page.author.uri %}
+                    {% if page.author.name and page.author.uri and page. %}
                     <div style="width:3em;height:3em;background:red">
                         <a href="{{ page.author.uri }}"><h1>{{ page.author.name }}</h1></a>
                     </div>
@@ -58,7 +58,7 @@ layout: default
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-10 col-md-10 col-sm-10">
-                                    <p class="author-name-title">{{ author.name }}</p>
+                                    <p class="author-name-title">{{ author.name }} {{ author.bio }}</p>
                                     <div class="social-icon">
                                         <a href="{{ author.facebook }}" target="_blank" class="fa fa-facebook icon-maker"></a>
                                         <a href="{{ author.twitter }}" target="_blank" class="fa fa-twitter icon-maker"></a>
