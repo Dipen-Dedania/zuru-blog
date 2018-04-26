@@ -300,11 +300,6 @@ dd {
   margin-left: 150px;
 }
 
-.wrapper {
-  width: 100%;
-  float: left;
-}
-
 .sliderZone,
 .logZone {
   margin-right: 400px;
@@ -409,10 +404,13 @@ input[type=number] {
 }
 
 .wrapper {
+  width: 100%;
+  float: left;
   position: relative;
   z-index: 10;
   background: aliceblue;
-  padding: 70px;
+  padding: 2em 15%;
+  margin-top: 10em;
   box-shadow: 0px 3px 27px #333;
 }
 
