@@ -855,7 +855,7 @@ input[type=number] {
   transition: 0.3s ease-in-out;
   border-bottom: 2px solid transparent;
 }
-.navbar-nav a.active span {
+.navbar-nav a.active span, .blog-item a.active span {
   border-bottom: 2px solid #99141E;
 }
 .navbar-nav a.we-are-hiring {
