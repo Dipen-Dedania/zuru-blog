@@ -3,17 +3,18 @@ layout: default
 ---
 <div class="post-container">
     {% include header.html %}
-    {% if page.did == 'blog6' %}
+    
+    <!-- {% if page.did == 'blog6' %}
     <div class="internal-page-banner-design">
         <div id='stars'></div>
         <div id='stars2'></div>
         <div id='stars3'></div>
     </div>
-    {% else %}
-    <div class="internal-page-banner-design-2">
+    {% else %} -->    
+    <!-- {% endif %} -->
+    <div class="internal-page-banner-design">
         <canvas id="stars" width="300" height="300"></canvas>
     </div>
-    {% endif %}
     <div class="container {{ page.did }}">
 
         <!--{% if page.banner %}
@@ -31,7 +32,7 @@ layout: default
         {% assign mainTag = page.tags[0] %}
         {% assign postTheme = site.themeColor[mainTag] %}
         
-        <div class="wrapper" style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};">
+        <div class="wrapper">
             <div class="row">
                 <div class="col-md-12">
                     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
