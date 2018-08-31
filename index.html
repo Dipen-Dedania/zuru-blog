@@ -53,14 +53,14 @@ layout: default
 
                             <a href="{{ post.url | prepend: site.baseurl }}" class="index-anchor">
                                 <div class="mb-25 row large-post-container"
-                                    style="background-color:{{postTheme.backgroundColor}};color:{{postTheme.fontColor}};">
-                                    <div class="padding-0 col-lg-9">
-                                        <div class="card-image-container" style="">
+                                    style="color:{{postTheme.fontColor}};">
+                                    <div class="padding-0 col-lg-9" style="background-color:#d4f2df;">
+                                        <div class="card-image-container">
                                             <img width="100%" src="{{site.baseurl}}/images/{{post.img}}"
                                                 alt="{{post.title}}">
                                         </div>
                                     </div>
-                                    <div class="padding-0 col-lg-3">
+                                    <div class="padding-0 col-lg-3" style="background-color:#5fff9a">
                                         <div class="panel-body">
                                             <span class="post-meta pull-right test"><small class="blog-post-date">{{ post.date | date: "%b %-d, %Y" }}</small></span>
                                             <p class="card-tags-name">{% for t in post.tags%} {{t}}{% unless forloop.last %}
