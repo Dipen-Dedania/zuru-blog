@@ -6,9 +6,10 @@ title:  "Fixed camera setup for object localization and measurement"
 slug:  Fixed camera setup for object localization and measurement
 date:   2018-01-25 8:00:00
 categories: computer-vision
-img: camera_setup/fov.png
+img: computer-vision.jpg
 banner: computer-vision.jpg
 tags: machine-learning
+description: "Fixed camera setup for object localization and measurement"
 ---
 A common task in Computer Vision is to use a camera for localize and measure certain objects in the scene. In the industry is common to use images of objects on a high contrast background and use Computer Vision algorithms to extract useful information.
 
@@ -31,9 +32,9 @@ Without entering in the detail of camera calibration, all we need to know is tha
 
 $$A =
 \begin{pmatrix}
-f_x & \gamma & c_x \\
- 0 & f_y & c_y \\
- 0 & 0 & 1
+f_x ~~\quad \gamma ~~\quad c_x \\
+ 0 ~~\quad f_y ~~\quad c_y \\
+ 0 ~~~\quad  ~0 ~~\quad ~1
 \end{pmatrix}$$
 
 where $$f_x$$ and $$f_y$$ are the focal distances in px and $$(c_x, c_y)$$ is the optical center in px.
@@ -56,7 +57,7 @@ $$m = \frac{f_{xy}}{f} \quad [\frac{px}{mm}]$$
 
 This scaling factor is extremely important, because it measure the **number of pixels in a millimeter of sensor**.
 
-#### Step 2: relationship between distance, object on sensor and object in scene
+### Step 2: relationship between distance, object on sensor and object in scene
 
 There's a relation between the size of an object in the scene and the size of the object on the image plane. This relation comes from the thin lenses equiation.
 
@@ -70,14 +71,14 @@ Hence it's pretty easy to measure the size of the object in millimeters, when ev
 
 $$X = \frac{\text{WD} \cdot \frac{x}{m}}{f}$$
 
-##### Step 3: satisfy constraints
+### Step 3: satisfy constraints
 
 There are 2 constraints that have to be satisfied when designing an object measurement system:
 
 1. Being able to measure the whole object
 2. Minimum accuracy
 
-##### Step 3.1: FOV constraint
+#### Step 3.1: FOV constraint
 
 The constraint on the ability of measure the whole object can be satisfied analyzing the Field of View (FOV) of the camera.
 
@@ -95,14 +96,14 @@ It's obvious that $$\alpha$$ is the angle (in radians) between the working dista
 The following images will make everything clear:
 
 <div markdown="1" class="blog-image-container">
-![Field Of View](/zuru-blog/images/camera_setup/fov.png){:class="blog-image"}
+![Field Of View](/images/camera_setup/fov.png){:class="blog-image"}
 </div>
 
 On the $$y$$ axis the position of $$M_o$$ is highlighted because we have to find the distance $$d$$ that makes the whole object (and the safety margin) visible. Hence:
 
 $$\begin{cases}
-WD &= L \cos \alpha \\
-M_o &= L \sin \alpha
+WD \quad= L \cos \alpha \\
+M_o \quad~~= L \sin \alpha
 \end{cases} \quad \Rightarrow \text{WD} = \frac{M_o}{\tan \alpha}$$
 
 This means that our working distance (noted as d in the picture) can be found exactly.
@@ -118,7 +119,7 @@ we're also removing the focal distance, taking into account that our measurement
 
 The offset term is an optional term, that usually can be found on the camera datashett, that's the relative position of the sensor with respect to the measurement point (in the order of $$[0, 5]$$mm usually).
 
-##### Step 3.2: minimum accuracy constraint
+#### Step 3.2: minimum accuracy constraint
 
 The constraint on the accuracy can be formalized as follow:
 
