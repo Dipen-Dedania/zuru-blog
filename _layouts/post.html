@@ -3,35 +3,14 @@ layout: default
 ---
 <div class="post-container">
     {% include header.html %}
-    
-    <!-- {% if page.did == 'blog6' %}
-    <div class="internal-page-banner-design">
-        <div id='stars'></div>
-        <div id='stars2'></div>
-        <div id='stars3'></div>
-    </div>
-    {% else %} -->    
-    <!-- {% endif %} -->
     <div class="internal-page-banner-design">
         <canvas id="stars" width="300" height="300"></canvas>
     </div>
-    <div class="container {{ page.did }}">
-
-        <!--{% if page.banner %}
-        <img src="{{site.baseurl}}/images/banners/{{ page.banner }}" class="post-banner"/>
-        {% else %}
-        <img src="{{site.baseurl}}/images/banners/banner-default.png" class="post-banner"/>
-        {% endif %}-->
-
-        <!-- {% if page.img %}
-        <img width="100%" src="{{site.baseurl}}/images/{{page.img}}" class="post-banner"/>
-        {% else %}
-        <img width="100%" src="{{site.baseurl}}/images/banners/banner-default.png" class="post-banner"/>
-        {% endif %} -->
+    <div class="container {{ page.did }}">    
 
         {% assign mainTag = page.tags[0] %}
         {% assign postTheme = site.themeColor[mainTag] %}
-        
+
         <div class="wrapper">
             <div class="row">
                 <div class="col-md-12">
@@ -40,7 +19,7 @@ layout: default
                             <p class="post-meta">
                                 <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{
                                     page.date | date:
-                                    "%b %-d, %Y" }}
+                                    "%-d %B %Y" }}
                                 </time>
                                 {% if page.author %} • <span itemprop="author" itemscope
                                                              itemtype="http://schema.org/Person"><span
@@ -49,7 +28,7 @@ layout: default
                             <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
                         </header>
 
-                        <div class="post-content" itemprop="articleBody">
+                        <div class="post-content text-justify" itemprop="articleBody">
                             {{ content }}
                         </div>
 
@@ -70,7 +49,8 @@ layout: default
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-10 col-md-10 col-sm-10">
-                                    <p class="author-name-title"><a href="{{ page.author.uri }}">{{ author.name }}</a> {{ author.bio }}</p>
+                                    <!-- If redirect to author page href="{{ author.uri }}" -->
+                                    <p class="author-name-title"><a href="#" class="author-name-link">{{ author.name }}</a> {{ author.bio }}</p>
                                     <div class="social-icon">
                                         {% if author.facebook %}
                                             <a href="{{ author.facebook }}" target="_blank" class="fa fa-facebook icon-maker"></a>
@@ -144,7 +124,7 @@ layout: default
                             <div class="panel-body">
                                 <p class="card-tags-name">{% for t in post.tags%} {{t}}{% unless forloop.last %} / {% endunless %}  {%endfor%}</p>
                                 <h3 class="panel-title pull-left">{{ post.title | truncate: 40 }}</h3><span
-                                    class="post-meta pull-right test"><small class="blog-post-date">{{ post.date | date: "%b %-d, %Y" }}</small></span>
+                                    class="post-meta pull-right test"><small class="blog-post-date">{{ post.date | date: "%-d %B %Y" }}</small></span>
                             </div>
 
                             <div class="panel-body">
